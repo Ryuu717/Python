@@ -1,0 +1,43 @@
+.row {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    /* flex-wrap: wrap; */
+}
+
+.col {
+    font-size: 1rem;
+    padding: 2rem;
+    width: 33.33%;
+    text-align: center;
+}
+
+.col img {
+    max-width: 100%;
+    width: 15rem;
+    height:12rem;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1000px;
+    max-width: 100%;
+}
+
+.img-container {
+    position: relative;
+}
+
+
+.audio {
+    width: 15rem;
+    height: 2.5rem;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+  background-color: #f1f6ff;
+}

@@ -1,0 +1,54 @@
+{% include "header.html" %}
+
+<header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80')">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="post-heading">
+					<br><br><br>
+					<h2>Blog</h2>
+					<p>取材の様子などを更新しています</p>
+					<br><br>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div id="main" class="wrapper style1">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				{% for post in posts %}
+				<div class="post-preview">
+					<a href="{{ url_for('show_post', post_id=post.id) }}">
+						<h2 class="post-title">
+							{{post.title}}
+						</h2>
+						<h3 class="post-subtitle">
+							{{post.subtitle}}
+						</h3>
+					</a>
+					<p class="post-meta">Posted on {{post.date}}
+						{% if current_user.id == 1: %}
+						<a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+						{% endif %}
+					</p>
+				</div>
+				<hr>
+				{% endfor %}
+
+				<!-- New Post -->
+				{% if current_user.id == 1: %}
+				<div class="clearfix">
+					<a class="btn btn-primary float-right" href="{{url_for('add_new_post')}}">Create New Post</a>
+				</div>
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.html" %}
